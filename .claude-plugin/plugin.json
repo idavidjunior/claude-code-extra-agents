@@ -1,0 +1,28 @@
+﻿{
+  "name": "claude-code-extra-agents",
+  "version": "1.0.0",
+  "description": "Conjunto de 19 agentes especializados e 18 skills para segurança, qualidade, debugging, navegação web e treinamento de times no Claude Code",
+  "author": {
+    "name": "idavidjunior",
+    "url": "https://github.com/idavidjunior"
+  },
+  "homepage": "https://github.com/idavidjunior/claude-code-extra-agents",
+  "repository": "https://github.com/idavidjunior/claude-code-extra-agents",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "agents",
+    "skills",
+    "security",
+    "debugging",
+    "vulnerability",
+    "code-review",
+    "incident-response",
+    "web-navigation",
+    "observability",
+    "resilience",
+    "authentication"
+  ],
+  "skills": ["./skills/"],
+  "commands": ["./commands/"]
+}

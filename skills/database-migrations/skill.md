@@ -1,3 +1,12 @@
+﻿---
+name: database-migrations
+description: |
+  Migração de banco de dados sem downtime usando expand-contract.
+  Trigger phrases: "database migration", "schema change", "zero downtime", "expand contract", "migrate database"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
 # Database Migrations — Migração sem Downtime
 
 ## Estratégia Expand-Contract

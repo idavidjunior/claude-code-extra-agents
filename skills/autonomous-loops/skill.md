@@ -1,4 +1,13 @@
-﻿# Autonomous Loops — Pipelines Sequenciais, PR Loops, DAG
+﻿---
+name: autonomous-loops
+description: |
+  Loops autônomos: pipelines sequenciais, PR loops, DAG.
+  Trigger phrases: "autonomous loop", "pipeline", "DAG", "PR loop", "automation"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
+# Autonomous Loops — Pipelines Sequenciais, PR Loops, DAG
 
 ## Tipos de Loop Autônomo
 

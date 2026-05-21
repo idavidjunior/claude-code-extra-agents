@@ -1,3 +1,12 @@
+﻿---
+name: security-review
+description: |
+  Checklist de segurança OWASP Top 10 para code review.
+  Trigger phrases: "security review", "OWASP", "vulnerability check", "security checklist"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
 # Security Review — Checklist de Segurança
 
 ## OWASP Top 10

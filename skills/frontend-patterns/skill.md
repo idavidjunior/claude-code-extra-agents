@@ -1,4 +1,13 @@
-﻿# Frontend Patterns — React e Next.js
+﻿---
+name: frontend-patterns
+description: |
+  Padrões de frontend: React, Next.js, estado, performance, acessibilidade.
+  Trigger phrases: "frontend", "React", "Next.js", "component", "state management"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
+# Frontend Patterns — React e Next.js
 
 ## Estrutura de Componentes
 - Atomic Design: atoms, molecules, organisms, templates, pages

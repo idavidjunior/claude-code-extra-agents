@@ -1,4 +1,13 @@
-﻿# Search First — Pesquisar Antes de Codar
+﻿---
+name: search-first
+description: |
+  Pesquisar antes de codar: documentação, GitHub, StackOverflow.
+  Trigger phrases: "search first", "research before code", "look up", "find solution"
+allowed-tools: Read, Grep, Bash, WebSearch, WebFetch
+version: 1.0.0
+---
+
+# Search First — Pesquisar Antes de Codar
 
 ## O Princípio
 Antes de escrever qualquer código, pesquise:

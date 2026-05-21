@@ -1,4 +1,13 @@
-﻿# Cost-Aware LLM Pipeline — Otimização de Custo com LLMs
+﻿---
+name: cost-aware-llm-pipeline
+description: |
+  Otimização de custo com LLMs: cache, batching, escolha de modelo.
+  Trigger phrases: "LLM cost", "token cost", "model routing", "optimize LLM", "reduce cost"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
+# Cost-Aware LLM Pipeline — Otimização de Custo com LLMs
 
 ## Estratégia de Modelos por Tarefa
 | Tarefa | Modelo | Custo |

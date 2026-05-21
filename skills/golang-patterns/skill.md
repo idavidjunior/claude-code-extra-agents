@@ -1,4 +1,13 @@
-﻿# Go Patterns — Idíomas e Boas Práticas
+﻿---
+name: golang-patterns
+description: |
+  Padrões de Go: errors, concorrência, estrutura de projeto, testing.
+  Trigger phrases: "golang", "Go patterns", "goroutine", "Go error handling", "Go project structure"
+allowed-tools: Read, Grep, Bash, Write, Edit
+version: 1.0.0
+---
+
+# Go Patterns — Idiomas e Boas Práticas
 
 ## Tratamento de Erros
 - Erro como valor, nunca exceção

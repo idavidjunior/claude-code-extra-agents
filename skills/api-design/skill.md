@@ -1,3 +1,12 @@
+﻿---
+name: api-design
+description: |
+  REST API design, paginação, respostas de erro, versionamento.
+  Trigger phrases: "API design", "REST", "endpoint", "paginação", "error response"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
 # API Design — REST, Paginação, Erros
 
 ## Estrutura de URL

@@ -1,3 +1,12 @@
+﻿---
+name: deployment-patterns
+description: |
+  CI/CD, Docker, health checks, estratégias de deploy.
+  Trigger phrases: "deploy", "CI/CD", "health check", "rollback", "blue green", "canary"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
 # Deployment Patterns — CI/CD, Docker, Health Checks
 
 ## Pipeline CI/CD mínimo

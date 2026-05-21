@@ -1,4 +1,13 @@
-﻿# Backend Patterns — API, Cache, Filas
+﻿---
+name: backend-patterns
+description: |
+  Padrões de backend: arquitetura em camadas, cache, filas e mensageria.
+  Trigger phrases: "backend", "API pattern", "cache", "message queue", "architecture"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
+# Backend Patterns — API, Cache, Filas
 
 ## Arquitetura em Camadas
 - Controller: recebe HTTP, valida input, retorna resposta

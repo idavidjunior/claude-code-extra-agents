@@ -1,3 +1,12 @@
+﻿---
+name: docker-patterns
+description: |
+  Docker em produção: multi-stage builds, segurança, docker compose.
+  Trigger phrases: "docker", "container", "Dockerfile", "docker compose", "image"
+allowed-tools: Read, Grep, Bash
+version: 1.0.0
+---
+
 # Docker Patterns — Containers em Produção
 
 ## Dockerfile de Produção

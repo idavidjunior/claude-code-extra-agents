@@ -1,4 +1,13 @@
-﻿# Python Patterns — Idíomas e Boas Práticas
+﻿---
+name: python-patterns
+description: |
+  Padrões de Python: estrutura de projeto, type hints, testes, concorrência.
+  Trigger phrases: "python", "Python patterns", "pytest", "type hints", "asyncio"
+allowed-tools: Read, Grep, Bash, Write, Edit
+version: 1.0.0
+---
+
+# Python Patterns — Idiomas e Boas Práticas
 
 ## Estrutura de Projeto
 - src/ ou app/ para código fonte

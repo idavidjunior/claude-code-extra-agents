@@ -1,1 +1,5 @@
-# /diagram\nGerar diagrama Mermaid/C4\n## Uso\n`/diagram`
+# /diagram
+Gerar diagrama Mermaid/C4 a partir do contexto atual.
+
+## Uso
+`/diagram`

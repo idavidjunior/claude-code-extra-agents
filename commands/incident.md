@@ -1,1 +1,5 @@
-# /incident\nPostmortem guiado passo a passo\n## Uso\n`/incident`
+# /incident
+Gerar postmortem guiado passo a passo.
+
+## Uso
+`/incident`

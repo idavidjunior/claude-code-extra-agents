@@ -1,18 +1,18 @@
-﻿{
+{
   "name": "claude-code-extra-agents",
   "owner": {
     "name": "idavidjunior",
     "email": "idavidjunior@github"
   },
   "metadata": {
-    "description": "Agentes e skills especializados para segurança, qualidade, debugging forense, navegação web autônoma, orquestração de ferramentas e treinamento de times"
+    "description": "Agentes e skills para seguranca, qualidade, debugging forense, navegacao web autonoma e operacao no Claude Code"
   },
   "plugins": [
     {
       "name": "claude-code-extra-agents",
       "source": "./",
-      "description": "19 agentes (debug-forensic, ai-code-verifier, vulnerability-hunter, sentinel, web-navigator, incident-simulator e mais) + 18 skills (resilience-engineering, observability-stack, authz-authn-matrix, agentic-search e mais)",
-      "version": "1.0.0",
+      "description": "22 agentes + 30 skills + 13 comandos para uso operacional no Claude Code",
+      "version": "1.1.0",
       "author": {
         "name": "idavidjunior",
         "email": "idavidjunior@github"
@@ -20,9 +20,9 @@
       "homepage": "https://github.com/idavidjunior/claude-code-extra-agents",
       "repository": "https://github.com/idavidjunior/claude-code-extra-agents",
       "license": "MIT",
-      "keywords": ["agents", "skills", "commands", "security", "debugging", "code-review", "vulnerability", "incident-response", "web-navigation"],
+      "keywords": ["agents", "skills", "commands", "security", "debugging", "code-review"],
       "category": "workflow",
-      "tags": ["agents", "skills", "commands", "security", "debugging", "code-review", "best-practices"],
+      "tags": ["agents", "skills", "commands", "security", "debugging", "best-practices"],
       "strict": false
     }
   ]

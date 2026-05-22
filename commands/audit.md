@@ -1,1 +1,5 @@
-# /audit\nAuditoria completa de segurança e dependências\n## Uso\n`/audit`
+# /audit
+Auditoria completa de seguranca e dependencias.
+
+## Uso
+`/audit`

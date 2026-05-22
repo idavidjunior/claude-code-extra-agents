@@ -1,45 +1,50 @@
-ï»¿---
+---
 name: golang-patterns
 description: |
-  PadrÃµes de Go: errors, concorrÃªncia, estrutura de projeto, testing.
-  Trigger phrases: "golang", "Go patterns", "goroutine", "Go error handling", "Go project structure"
-allowed-tools: Read, Grep, Bash, Write, Edit
-version: 1.0.0
+  Padrões Go para serviços robustos: contexto, concorrência segura, erros explícitos e organização idiomática.
+  Trigger phrases: "golang", "go routines", "go patterns", "idiomatic go"
+allowed-tools: Read, Grep, Bash
+version: 1.1.0
 ---
 
-# Go Patterns â€” Idiomas e Boas PrÃ¡ticas
+# Golang Patterns — Go Idiomático para Produção
 
-## Tratamento de Erros
-- Erro como valor, nunca exceÃ§Ã£o
-- Sempre verifique erro antes de continuar
-- fmt.Errorf com %w para wrapping
-- errors.Is e errors.As para verificaÃ§Ã£o
-- Panic apenas para erros irrecuperÃ¡veis
+## Objetivo
+Escrever Go simples, previsível e performático sem sacrificar legibilidade.
 
-## ConcorrÃªncia
-- Goroutines com context.Context
-- sync.WaitGroup para esperar grupo
-- channels para comunicaÃ§Ã£o entre goroutines
-- select para mÃºltiplos canais
-- errgroup para cancelamento em grupo
+## Princípios
+- Preferir clareza a abstração precoce
+- Erros explícitos com contexto
+- Interfaces pequenas, definidas no consumidor
+- `context.Context` em fronteiras I/O
 
-## Estrutura de Projeto
-- cmd/ para entrypoints
-- internal/ para cÃ³digo privado
-- pkg/ para bibliotecas pÃºblicas
-- api/ para protobuf e OpenAPI
-- configs/ para arquivos de configuraÃ§Ã£o
+## Concorrência segura
+- Goroutines com ownership claro
+- `errgroup` para tarefas paralelas coordenadas
+- Cancelamento propagado por context
+- Evitar compartilhamento mutável sem necessidade
 
-## Regras de Ouro
-- Interfaces pequenas (1-3 mÃ©todos)
-- Aceite interfaces, retorne structs
-- defer para cleanup (Close, Unlock)
-- go fmt e go vet antes de commit
-- Testes com table-driven tests
+## Estrutura recomendada
+- `cmd/` para entrypoints
+- `internal/` para domínio privado
+- `pkg/` apenas para API realmente reutilizável
+- Separação clara entre transporte, domínio e infraestrutura
 
-## Anti-Patterns
-- Panic em biblioteca
-- Goroutine sem cancelamento
-- Interface grande (Interface Segregation)
-- Ignorar erros com _
-- Mutex copiado por valor
+## Checklist de qualidade
+- Race detector limpo?
+- Timeouts em chamadas externas?
+- Logs estruturados com correlação?
+- Testes cobrindo erros e cancelamento?
+- Lints (`go vet`, staticcheck) sem alertas críticos?
+
+## Anti-patterns
+- Panic para fluxo normal
+- Interface genérica antecipada
+- Context ignorado em operações bloqueantes
+- Goroutine sem lifecycle controlado
+
+## Saída esperada do agente
+- Recomendações idiomáticas aplicáveis
+- Ajustes de concorrência/contexto
+- Checklist de confiabilidade Go
+- Plano de testes e observabilidade

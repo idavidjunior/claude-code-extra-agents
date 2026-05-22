@@ -1,37 +1,51 @@
-ï»¿---
+---
 name: docker-patterns
 description: |
-  Docker em produÃ§Ã£o: multi-stage builds, seguranÃ§a, docker compose.
-  Trigger phrases: "docker", "container", "Dockerfile", "docker compose", "image"
+  Padrões Docker para build reproduzível, imagem mínima, segurança e deploy previsível.
+  Trigger phrases: "Dockerfile", "containerizar", "imagem", "multi-stage"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Docker Patterns â€” Containers em ProduÃ§Ã£o
+# Docker Patterns — Build Seguro e Reproduzível
 
-## Dockerfile de ProduÃ§Ã£o
-- Multi-stage build: separa build de runtime
-- Imagem final baseada em distroless ou alpine
-- UsuÃ¡rio nÃ£o-root (USER 1000)
-- HEALTHCHECK definido
-- Nenhum segredo na imagem (docker history)
+## Objetivo
+Criar imagens pequenas, seguras e determinísticas para dev, CI e produção.
 
-## Docker Compose
-- ServiÃ§os com healthcheck e depends_on
-- Redes separadas: frontend, backend, database
-- Volumes nomeados para dados persistentes
-- VariÃ¡veis de ambiente via .env (nÃ£o no compose)
+## Práticas essenciais
+- Multi-stage build com separação `build`/`runtime`
+- Base image enxuta e atualizada
+- Usuário não-root no runtime
+- `.dockerignore` rigoroso
+- Dependências travadas por versão/hash
 
-## SeguranÃ§a
-- Nunca rode como root
-- Imagens scanneadas com Trivy ou Snyk
-- Tags explÃ­citas (nunca :latest em produÃ§Ã£o)
-- dockerignore para excluir secrets e node_modules
-- Read-only filesystem quando possÃ­vel
+## Dockerfile checklist
+- Ordem otimizada para cache?
+- Não copia segredos para camada?
+- Healthcheck definido?
+- Entry point explícito?
+- Porta/documentação coerentes?
 
-## Anti-Patterns
-- Um container com mÃºltiplos processos
-- Dados em bind mount em vez de volume
-- .env commitado no repositÃ³rio
-- Imagem com ferramentas de build no runtime
-- Portas expostas desnecessariamente
+## Segurança
+- Scan de vulnerabilidades no CI
+- Assinatura e provenance quando possível
+- Evitar `latest` em produção
+- Menor superfície: remover tools de build da imagem final
+
+## Operação
+- Logs em stdout/stderr
+- Config via env vars (12-factor)
+- Limits de CPU/memória documentados
+- Estratégia de graceful shutdown
+
+## Anti-patterns
+- Um container com múltiplos processos críticos
+- Copiar repositório inteiro sem necessidade
+- Rodar como root por padrão
+- Build não reprodutível por dependências flutuantes
+
+## Saída esperada do agente
+- Dockerfile revisado com racional
+- Lista de hardenings aplicáveis
+- Regras de CI para build/scan/publish
+- Guia de execução local e produção

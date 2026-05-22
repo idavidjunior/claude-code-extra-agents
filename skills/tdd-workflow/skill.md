@@ -1,55 +1,47 @@
-ï»¿---
+---
 name: tdd-workflow
 description: |
-  Test-Driven Development: ciclo Red-Green-Refactor. Testes unitÃ¡rios, integraÃ§Ã£o e E2E.
+  Fluxo TDD completo (Red-Green-Refactor) com foco em comportamento, segurança de refactor e feedback rápido.
   Trigger phrases: "TDD", "test driven", "red green refactor", "escreva um teste", "cobertura de teste"
 allowed-tools: Read, Grep, Bash, Write, Edit
-version: 1.0.0
+version: 1.1.0
 ---
 
-# TDD Workflow â€” Test-Driven Development
+# TDD Workflow — Red, Green, Refactor com Disciplina
 
-## O Ciclo Red-Green-Refactor
+## Objetivo
+Guiar implementação por comportamento observável, reduzindo regressões e aumentando confiança de mudança.
 
-### Red â€” Escreva um teste que falha
-- Teste deve falhar pela razÃ£o certa (funcionalidade nÃ£o implementada)
-- Nome do teste descreve o comportamento: should_return_error_when_email_is_invalid
-- Um teste por comportamento, nÃ£o um teste por mÃ©todo
+## Ciclo base
+1. Red: escreva um teste que falha pelo motivo certo
+2. Green: implemente o mínimo para passar
+3. Refactor: melhore design mantendo testes verdes
 
-### Green â€” FaÃ§a o teste passar
-- Escreva o cÃ³digo mais simples possÃ­vel
-- NÃ£o implemente nada alÃ©m do necessÃ¡rio para o teste passar
-- Se a implementaÃ§Ã£o mais simples Ã© hardcoded, hardcode e depois generalize
+## Regras práticas
+- Um comportamento por teste
+- Nomes orientados a intenção de negócio
+- Testes rápidos e independentes
+- Refactor só com suíte verde
 
-### Refactor â€” Melhore o cÃ³digo
-- Elimine duplicaÃ§Ã£o
-- Melhore nomes
-- Extraia mÃ©todos e classes
-- Garanta que os testes continuam passando
+## Pirâmide recomendada
+- Unitários: maioria, execução muito rápida
+- Integração: contratos e fronteiras reais
+- E2E: fluxos críticos de ponta a ponta
 
-## Tipos de Teste
+## Checklist de qualidade
+- O teste falhou antes da implementação?
+- O cenário cobre caso feliz e borda principal?
+- O teste valida comportamento, não detalhes internos?
+- O feedback local está rápido o suficiente para manter cadência?
 
-| Tipo | Escopo | Quantidade | Exemplo |
-|------|--------|------------|---------|
-| UnitÃ¡rio | 1 funÃ§Ã£o/classe | 80% dos testes | should_calculate_total_with_discount |
-| IntegraÃ§Ã£o | 2+ componentes reais | 15% dos testes | should_persist_order_to_database |
-| E2E | Fluxo completo | 5% dos testes | should_complete_checkout_from_cart_to_payment |
+## Anti-patterns
+- Escrever muito código antes do primeiro teste
+- Mockar em excesso e perder sinal real
+- Testes lentos que ninguém roda localmente
+- Cobertura alta com baixo valor comportamental
 
-## Regras de Ouro
-- Sempre veja o teste falhar antes de implementar
-- Nunca escreva cÃ³digo novo sem teste falhando
-- Cobertura mÃ­nima: 80%
-- Teste rÃ¡pido (menos de 100ms unitÃ¡rio, menos de 5s integraÃ§Ã£o)
-- Teste independente (sem depender de ordem de execuÃ§Ã£o)
-- Mock apenas o que Ã© lento ou externo (banco, API, email)
-
-## Anti-Patterns
-- Teste que nunca falhou (nÃ£o testa nada real)
-- Teste que testa implementaÃ§Ã£o em vez de comportamento
-- Mock excessivo (tudo mockado = nada testado)
-- Teste lento (desestimula rodar)
-- Teste interdependente (falha em cascata)
-
-## ReferÃªncias
-- "Test-Driven Development: By Example" â€” Kent Beck
-- "Growing Object-Oriented Software, Guided by Tests" â€” Freeman & Pryce
+## Saída esperada do agente
+- Sequência de testes por incremento
+- Critérios de aceitação verificáveis
+- Estratégia de refactor seguro
+- Plano de evolução da suíte

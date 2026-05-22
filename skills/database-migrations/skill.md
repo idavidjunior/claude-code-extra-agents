@@ -1,46 +1,49 @@
-ï»¿---
+---
 name: database-migrations
 description: |
-  MigraÃ§Ã£o de banco de dados sem downtime usando expand-contract.
-  Trigger phrases: "database migration", "schema change", "zero downtime", "expand contract", "migrate database"
+  Estratégia de migrações seguras: expansão/contração, zero-downtime e rollback planejado.
+  Trigger phrases: "migration", "schema change", "zero downtime", "database rollout"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Database Migrations â€” MigraÃ§Ã£o sem Downtime
+# Database Migrations — Evoluir Schema sem Quebrar Produção
 
-## EstratÃ©gia Expand-Contract
-1. Expand: adicione nova coluna/tabela (sem remover nada)
-2. Migrate: cÃ³digo escreve nos dois formatos durante transiÃ§Ã£o
-3. Contract: remova coluna/tabela antiga apÃ³s migraÃ§Ã£o completa
+## Objetivo
+Alterar banco de dados com segurança operacional e mínima indisponibilidade.
 
-## Regras de Ouro
-- MigraÃ§Ã£o Ã© sempre forward-only (nÃ£o reverta migraÃ§Ã£o em produÃ§Ã£o)
-- Toda migraÃ§Ã£o tem backup antes de executar
-- Colunas novas sÃ£o nullable ou tÃªm default
-- Nunca renomeie coluna (adicione nova, migre dados, remova antiga)
-- Ãndices sÃ£o criados CONCURRENTLY (PostgreSQL)
-- MigraÃ§Ã£o pesada Ã© executada em janela de baixa
+## Estratégia padrão (expand/contract)
+1. Expand: adicionar estrutura compatível (nova coluna/tabela)
+2. Backfill: preencher dados gradualmente
+3. Dual-write/read: transição controlada na aplicação
+4. Contract: remover legado após validação
 
-## Tipos de MigraÃ§Ã£o Segura
-| OperaÃ§Ã£o | Seguro? | Alternativa |
-|----------|---------|-------------|
-| ADD COLUMN nullable | Sim | - |
-| ADD COLUMN com default | Sim (PostgreSQL 11+) | - |
-| DROP COLUMN | NÃ£o | Expand-Contract |
-| RENAME COLUMN | NÃ£o | Add new + drop old |
-| ADD INDEX | Sim (CONCURRENTLY) | - |
-| CHANGE TYPE | NÃ£o | Nova coluna + migraÃ§Ã£o |
+## Práticas críticas
+- Migrações pequenas e reversíveis
+- Índices criados de forma online quando possível
+- Locks longos evitados/monitorados
+- Janela de execução e plano de rollback documentados
 
-## Ferramentas
-- Prisma: npx prisma migrate deploy
-- Django: python manage.py migrate
-- Flyway: Java, SQL puro
-- golang-migrate: Go, arquivos SQL numerados
-- Alembic: Python/SQLAlchemy
+## Checklist pré-deploy
+- Estimativa de impacto em tempo e lock?
+- Backup/snapshot recente disponível?
+- Scripts testados em cópia realista?
+- Feature flags para ativação gradual?
+- Métricas para detectar regressão?
 
-## Anti-Patterns
-- MigraÃ§Ã£o que altera tipo de coluna com dados
-- MigraÃ§Ã£o sem transaÃ§Ã£o (parcialmente aplicada)
-- Executar migraÃ§Ã£o no mesmo deploy do cÃ³digo
-- Rollback de migraÃ§Ã£o em produÃ§Ã£o (perda de dados)
+## Rollback
+- Definir rollback lógico e técnico
+- Evitar mudanças irreversíveis no mesmo passo
+- Validar rollback em ambiente de staging
+
+## Anti-patterns
+- Renomear/remover coluna usada sem fase de compatibilidade
+- Backfill massivo sem limitação de batch
+- Deploy de app dependente antes da migração expand
+- Assumir rollback sem teste real
+
+## Saída esperada do agente
+- Plano de migração faseado
+- Scripts de verificação/rollback
+- Riscos operacionais e mitigação
+- Critérios de pronto para contract

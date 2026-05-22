@@ -1,48 +1,49 @@
-ï»¿---
+---
 name: python-patterns
 description: |
-  PadrÃµes de Python: estrutura de projeto, type hints, testes, concorrÃªncia.
-  Trigger phrases: "python", "Python patterns", "pytest", "type hints", "asyncio"
-allowed-tools: Read, Grep, Bash, Write, Edit
-version: 1.0.0
+  Padrões Python para código limpo, tipado, testável e pronto para produção.
+  Trigger phrases: "python best practices", "python architecture", "type hints", "python patterns"
+allowed-tools: Read, Grep, Bash
+version: 1.1.0
 ---
 
-# Python Patterns â€” Idiomas e Boas PrÃ¡ticas
+# Python Patterns — Simples, Tipado e Mantível
 
-## Estrutura de Projeto
-- src/ ou app/ para cÃ³digo fonte
-- tests/ espelhando src/
-- pyproject.toml para configuraÃ§Ã£o moderna
-- Type hints em toda funÃ§Ã£o pÃºblica (mypy strict)
+## Objetivo
+Produzir código Python legível e robusto, com baixo custo de manutenção.
 
-## Data Classes e Pydantic
-- dataclasses para objetos de domÃ­nio simples
-- Pydantic para validaÃ§Ã£o de entrada (FastAPI)
-- Enum para constantes com significado
-- Structural pattern matching (Python 3.10+)
+## Princípios
+- Funções pequenas e coesas
+- Tipagem progressiva (`typing`) nas fronteiras
+- Separar lógica de domínio de infraestrutura
+- Preferir clareza a metaprogramação avançada
 
-## Tratamento de Erros
-- ExceÃ§Ãµes especÃ­ficas, nunca except Exception genÃ©rico
-- Context managers (with) para recursos
-- Logging estruturado com structlog
-- Nunca passe erros silenciosamente
+## Estrutura recomendada
+- Módulos por domínio, não por tipo genérico
+- `services/`, `repositories/`, `schemas/` quando fizer sentido
+- Config centralizada e validada
+- Erros de domínio explícitos
 
-## ConcorrÃªncia
-- asyncio para I/O bound
-- multiprocessing para CPU bound
-- ThreadPoolExecutor para legacy bloqueante
-- Sempre defina timeout em operaÃ§Ãµes de rede
+## Qualidade
+- Lint + format no CI
+- Testes unitários para regras críticas
+- Testes de integração para I/O
+- Cobertura de casos de erro e borda
 
-## Regras de Ouro
-- Virtual environment por projeto
-- pip-audit ou safety para vulnerabilidades
-- black + ruff + mypy no CI
-- Testes com pytest + fixtures + parametrize
-- Requirements congelados para produÃ§Ã£o
+## Performance pragmática
+- Medir antes de otimizar
+- Evitar N+1 e loops custosos em dados grandes
+- Usar async apenas quando I/O-bound justificar
+- Cache com política de invalidação clara
 
-## Anti-Patterns
-- import * (polui namespace)
-- Mutable default arguments
-- List comprehension com efeito colateral
-- ExceÃ§Ã£o sem mensagem
-- print em produÃ§Ã£o (use logging)
+## Anti-patterns
+- Script monolítico sem fronteiras
+- `except Exception` sem contexto
+- Estado global mutável sem controle
+- Otimização prematura sem profiling
+
+## Saída esperada do agente
+- Refatorações orientadas a legibilidade
+- Estratégia de tipagem e testes
+- Padrões de erro e logging
+- Backlog técnico priorizado

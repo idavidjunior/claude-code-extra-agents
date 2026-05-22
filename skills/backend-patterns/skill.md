@@ -1,41 +1,50 @@
-ï»¿---
+---
 name: backend-patterns
 description: |
-  PadrÃµes de backend: arquitetura em camadas, cache, filas e mensageria.
-  Trigger phrases: "backend", "API pattern", "cache", "message queue", "architecture"
+  Padrões backend para serviços resilientes: contratos claros, separação de camadas, observabilidade e confiabilidade.
+  Trigger phrases: "backend architecture", "service layer", "repository pattern", "API backend"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Backend Patterns â€” API, Cache, Filas
+# Backend Patterns — Serviços Confiáveis
 
-## Arquitetura em Camadas
-- Controller: recebe HTTP, valida input, retorna resposta
-- Service: lÃ³gica de negÃ³cio pura
-- Repository: acesso a dados
-- Domain: entidades e value objects
+## Objetivo
+Projetar serviços legíveis e resilientes com baixo acoplamento e alta testabilidade.
 
-## Cache
-- Cache aside: aplicaÃ§Ã£o gerencia cache manualmente
-- Read through: cache busca do banco automaticamente
-- Write behind: escrita assÃ­ncrona no banco via cache
-- InvalidaÃ§Ã£o: TTL + invalidaÃ§Ã£o explÃ­cita em mutation
+## Estrutura sugerida
+- Camada de apresentação (HTTP/transport)
+- Camada de aplicação (casos de uso)
+- Camada de domínio (regras centrais)
+- Camada de infraestrutura (DB, filas, APIs externas)
 
-## Filas e Mensageria
-- Para tarefas lentas: envio de email, geraÃ§Ã£o de relatÃ³rio
-- Para desacoplamento: serviÃ§o A nÃ£o espera serviÃ§o B
-- Para resiliÃªncia: retry automÃ¡tico em falha temporÃ¡ria
-- Ferramentas: RabbitMQ, SQS, Redis Streams
+## Pilares técnicos
+- Contratos explícitos (DTOs, schemas, versionamento)
+- Idempotência em operações críticas
+- Controle de concorrência e retry seguro
+- Observabilidade por default (logs, métricas, traces)
 
-## Regras de Ouro
-- Controller nunca tem lÃ³gica de negÃ³cio
-- Service nunca sabe HTTP (req/res)
-- Repository nunca tem lÃ³gica de negÃ³cio
-- Cache tem TTL explÃ­cito
-- Fila tem dead letter queue
+## Checklist operacional
+- Timeouts e circuit breaker definidos?
+- Erros mapeados para códigos coerentes?
+- Queries críticas indexadas e paginadas?
+- Segredos fora do código?
+- Runbook de incidente disponível?
 
-## Anti-Patterns
-- Controller com regra de negÃ³cio
-- Cache sem TTL (memÃ³ria infinita)
-- Fila sem dead letter (mensagens perdidas)
-- Service que acessa banco diretamente sem repository
+## Testes essenciais
+- Unit para regras de domínio
+- Integration para DB/externos
+- Contract tests entre serviços
+- Testes de carga básicos em endpoints críticos
+
+## Anti-patterns
+- Lógica de negócio no controller
+- Dependência circular entre módulos
+- Retries sem limite e sem jitter
+- Erros genéricos sem contexto
+
+## Saída esperada do agente
+- Diagrama de camadas e responsabilidades
+- Padrão de erro e observabilidade
+- Matriz de riscos técnicos
+- Plano de testes por camada

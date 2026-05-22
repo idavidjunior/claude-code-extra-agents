@@ -1,48 +1,52 @@
-ï»¿---
+---
 name: deployment-patterns
 description: |
-  CI/CD, Docker, health checks, estratÃ©gias de deploy.
+  Estratégias de deploy confiável com CI/CD, health checks, rollout gradual e rollback operacional.
   Trigger phrases: "deploy", "CI/CD", "health check", "rollback", "blue green", "canary"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Deployment Patterns â€” CI/CD, Docker, Health Checks
+# Deployment Patterns — Entrega Confiável em Produção
 
-## Pipeline CI/CD mÃ­nimo
+## Objetivo
+Publicar mudanças com segurança, observabilidade e recuperação rápida.
 
-1. Build â€” compila, checa tipos, lint
-2. Test â€” unitÃ¡rios, integraÃ§Ã£o, cobertura
-3. Security Scan â€” SAST, SCA, secrets
-4. Package â€” container ou artefato
-5. Deploy â€” staging primeiro, produÃ§Ã£o depois
-6. Verify â€” health check, smoke test
+## Pipeline mínimo
+1. Build (compilação, lint, tipos)
+2. Test (unit, integração, smoke)
+3. Security (SAST/SCA/secrets)
+4. Package (imagem/artefato versionado)
+5. Deploy (staging -> produção)
+6. Verify (health checks + métricas)
 
-## Health Check obrigatÃ³rio
-- Endpoint /health: retorna 200 se serviÃ§o OK
-- Verifica dependÃªncias: banco, cache, fila
-- Timeout de 5 segundos (nÃ£o pode travar)
-- Kubernetes: livenessProbe e readinessProbe
+## Estratégias de rollout
+- Rolling update: padrão de baixo risco
+- Blue-green: troca rápida de tráfego
+- Canary: validação progressiva em produção
+- Recreate: apenas quando downtime é aceitável
 
-## EstratÃ©gias de Deploy
-| EstratÃ©gia | Risco | Rollback |
-|-----------|-------|----------|
-| Rolling Update | Baixo | AutomÃ¡tico (K8s) |
-| Blue-Green | MÃ©dio | InstantÃ¢neo (troca trÃ¡fego) |
-| Canary | Baixo | AutomÃ¡tico (trÃ¡fego progressivo) |
-| Recreate | Alto | Lento (downtime) |
+## Checklist operacional
+- Staging representa produção?
+- Health/readiness/liveness configurados?
+- Feature flags para desacoplar release/deploy?
+- Rollback testado e documentado?
+- Observabilidade habilitada desde o primeiro request?
 
-## Regras de Ouro
-- Staging espelha produÃ§Ã£o (dados anonimizados)
-- MigraÃ§Ã£o de banco Ã© separada do deploy do cÃ³digo
-- Feature flags desacoplam deploy de release
-- Rollback nÃ£o reverte banco (schema forward-only)
-- Secrets nunca no cÃ³digo ou imagem Docker
-- Logs centralizados desde o primeiro deploy
+## Regras de ouro
+- Migração de banco com estratégia expand/contract
+- Secrets fora de código e imagem
+- Deploy em janela com suporte disponível
+- Critério de abort explícito por SLO
 
-## Anti-Patterns
-- Deploy sexta-feira Ã s 18h
-- Sem health check
-- Sem plano de rollback documentado
-- MigraÃ§Ã£o de banco sem backup
-- ConfiguraÃ§Ã£o diferente entre staging e produÃ§Ã£o
+## Anti-patterns
+- Deploy sem plano de rollback
+- Mudar app + schema de forma acoplada e irreversível
+- Ignorar smoke pós-deploy
+- Diferença grande entre staging e produção
+
+## Saída esperada do agente
+- Plano de pipeline e gates
+- Estratégia de rollout/rollback
+- Checklist de readiness operacional
+- Métricas de sucesso pós-deploy

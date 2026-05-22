@@ -1,36 +1,55 @@
-ï»¿---
+---
 name: e2e-testing
 description: |
-  Testes E2E com Playwright e Page Object Model.
+  Estratégia de testes E2E com Playwright: cobertura de fluxos críticos, estabilidade, isolamento e diagnóstico.
   Trigger phrases: "E2E", "end to end", "Playwright", "page object", "teste de interface"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# E2E Testing â€” Playwright e Page Object Model
+# E2E Testing — Playwright e Confiabilidade de Fluxos
 
-## Estrutura de Teste E2E
-- Page Object Model: cada pagina e uma classe
-- Testes independentes: cada teste cria seu proprio estado
-- Dados de teste isolados por execucao
-- Timeout generoso: 30s por operacao, 5min por teste
+## Objetivo
+Validar jornadas reais de usuário com testes estáveis e informativos em CI.
 
-## Playwright Boilerplate
-- Use locators, nunca seletores CSS diretos
-- page.waitForSelector substituido por locator.waitFor()
-- Trace on failure para debugging
-- Screenshots automaticos em falha
+## Escopo recomendado
+- Fluxos críticos de receita/risco (login, checkout, pagamento)
+- Integrações sensíveis (auth, permissões, sessão)
+- Caminhos de recuperação de erro
 
-## Regras de Ouro
-- Teste fluxo critico: login, checkout, pagamento
-- Nao teste aparencia visual (cor, posicao)
-- Mock API externa (pagamento, email)
-- Banco de dados limpo antes de cada suite
-- Rode em CI com navegador headless
+## Arquitetura de suíte
+- Testes por jornada (não por página isolada)
+- Fixtures para setup idempotente
+- Dados de teste efêmeros por execução
+- Separação entre smoke, regressão e full-suite
 
-## Anti-Patterns
-- Teste dependente de ordem
-- Sleep fixo em vez de waitFor
-- Testar layout visual em vez de comportamento
-- Mockar API interna (perde o proposito do E2E)
-- Nao limpar estado entre testes
+## Práticas Playwright
+- Preferir `getByRole`, `getByLabel`, `getByTestId`
+- Esperas baseadas em condição, nunca `sleep`
+- `trace`, `video` e screenshot em falha
+- Retry apenas para flaky conhecido e monitorado
+
+## Checklist de estabilidade
+- Cada teste roda independente de ordem?
+- Estado inicial é garantido por fixture?
+- Dependências externas estão mockadas quando apropriado?
+- Timeout calibrado por operação real?
+- Falha aponta causa raiz com evidência útil?
+
+## Pipeline CI
+- Execução headless obrigatória
+- Paralelismo controlado por capacidade do ambiente
+- Artefatos publicados em toda falha
+- Gate de merge com smoke mínimo
+
+## Anti-patterns
+- Cobertura visual superficial sem regra de negócio
+- Mockar tudo e perder valor de integração
+- Testes acoplados ao layout frágil
+- Ignorar quarantine/flaky backlog
+
+## Saída esperada do agente
+- Matriz de cenários críticos
+- Plano de suíte (smoke/regressão)
+- Convenções de locator e fixture
+- Estratégia de debug e redução de flaky

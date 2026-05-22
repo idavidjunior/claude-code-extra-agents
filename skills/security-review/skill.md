@@ -1,45 +1,46 @@
-ï»¿---
+---
 name: security-review
 description: |
-  Checklist de seguranÃ§a OWASP Top 10 para code review.
-  Trigger phrases: "security review", "OWASP", "vulnerability check", "security checklist"
+  Revisão de segurança pragmática: identificação de riscos, priorização por impacto e plano de mitigação verificável.
+  Trigger phrases: "security review", "threat model", "vulnerability", "secure coding"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Security Review â€” Checklist de SeguranÃ§a
+# Security Review — Risco Real, Mitigação Real
 
-## OWASP Top 10
+## Objetivo
+Detectar vulnerabilidades relevantes ao negócio e propor correções priorizadas e testáveis.
 
-1. Broken Access Control â€” verifique se toda rota admin tem controle de acesso
-2. Cryptographic Failures â€” dados sensÃ­veis em trÃ¢nsito (HTTPS) e em repouso (AES-256)
-3. Injection â€” SQL, NoSQL, OS command, template em toda entrada do usuÃ¡rio
-4. Insecure Design â€” threat modeling antes de codar
-5. Security Misconfiguration â€” headers HTTP, CORS restritivo, debug mode off
-6. Vulnerable Components â€” dependÃªncias atualizadas, sem CVEs conhecidos
-7. Auth Failures â€” bcrypt/argon2, sem limite de tentativas, MFA disponÃ­vel
-8. Software e Data Integrity â€” CI/CD seguro, assinatura de artefatos
-9. Logging e Monitoring â€” logs de auth, transaÃ§Ãµes e erros com trace_id
-10. SSRF â€” URLs do usuÃ¡rio nunca acessam recursos internos
+## Escopo mínimo
+- Entradas não confiáveis e validação
+- Autenticação/autorização
+- Gestão de segredos e credenciais
+- Dependências e supply chain
+- Superfície de ataque externa
 
-## Checklist rÃ¡pido para code review
+## Método de revisão
+1. Mapear ativos e dados sensíveis
+2. Identificar fronteiras de confiança
+3. Levantar ameaças prováveis
+4. Classificar risco (impacto x probabilidade)
+5. Definir mitigação + evidência de correção
 
-- Nenhum segredo hardcoded (API key, token, senha)
-- Toda query SQL usa parÃ¢metros preparados
-- Input do usuÃ¡rio validado e sanitizado
-- Output escapado (XSS prevenido)
-- CORS restrito a origens conhecidas
-- Rate limiting em endpoints de auth
-- Logs nÃ£o contÃªm PII ou segredos
-- DependÃªncias sem CVEs crÃ­ticos ou altos
+## Checklist técnico
+- Input sanitizado e validado por schema?
+- Controles de acesso por recurso, não só por rota?
+- Segredos fora de código e logs?
+- Proteção contra SSRF, IDOR, SQLi, XSS, CSRF (quando aplicável)?
+- Dependências com CVEs críticas tratadas?
 
-## Headers HTTP obrigatÃ³rios
-- Content-Security-Policy
-- Strict-Transport-Security (HSTS)
-- X-Content-Type-Options: nosniff
-- X-Frame-Options: DENY
-- Referrer-Policy: strict-origin
+## Anti-patterns
+- "Segurança por obscuridade"
+- Tratar achado crítico como dívida baixa
+- Corrigir sem teste de regressão
+- Ignorar telemetria de abuso
 
-## ReferÃªncias
-- OWASP Top 10: owasp.org/Top10
-- OWASP Cheat Sheet Series: cheatsheetseries.owasp.org
+## Saída esperada do agente
+- Lista de achados por severidade
+- Evidência técnica de cada risco
+- Mitigação proposta e esforço estimado
+- Plano de validação pós-correção

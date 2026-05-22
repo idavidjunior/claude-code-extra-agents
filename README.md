@@ -1,100 +1,48 @@
-```markdown
-# 🧠 Claude Code Extra Agents
+# Claude Code Extra Agents
 
-20 agentes especializados, 18 skills de domínio e 13 comandos para transformar o Claude Code em um ecossistema completo de desenvolvimento, segurança e operações.
+Ecossistema de agentes e skills para desenvolvimento, qualidade, seguran�a e opera��o.
 
-## ⚡ Instalação
+## Estado Atual
+- Agentes: 22
+- Skills: 30
+- Comandos: 13
 
-### Plugin (recomendado)
-```
-/plugin marketplace add idavidjunior/claude-code-extra-agents
-/plugin install claude-code-extra-agents@claude-code-extra-agents
-```
+## Princ�pios
+- Cada agente tem um prop�sito claro e fronteira de responsabilidade.
+- Skills s�o playbooks reutiliz�veis para execu��o t�tica.
+- Orquestra��o prioriza: objetivo do usu�rio -> risco -> custo -> velocidade.
+- Sem sobreposi��o: um agente lidera, os demais apoiam por contexto.
 
-### Script (Windows)
-```powershell
-.\install.ps1
-```
+## Fluxo Recomendado
+1. `doctor` para validar ambiente e pr�-condi��es.
+2. `sentinel` para triagem e roteamento inteligente.
+3. Agente especialista para execu��o principal.
+4. Skills complementares por dom�nio.
+5. Relat�rio final com riscos, decis�es e pr�ximos passos.
 
-### Script (Linux/macOS)
-```bash
-bash install.sh
-```
+## Documenta��o de Orquestra��o
+- [Operating Model](docs/OPERATING_MODEL.md)
+- [Skill Index](docs/SKILL_INDEX.md)
+- [Agent x Skill Matrix](docs/AGENT_SKILL_MATRIX.md)
 
----
+## Valida��o
+- Estrutura de front matter: `./scripts/validate-ecosystem.ps1`
+- Links locais da documenta��o: `./scripts/validate-doc-links.ps1`
 
-## 🧠 Agentes
+## Comandos
+- `/doctor`
+- `/forensic`
+- `/verify`
+- `/simulate`
+- `/navigate`
+- `/perf`
+- `/audit`
+- `/diagram`
+- `/contract-test`
+- `/i18n`
+- `/migrate`
+- `/incident`
+- `/unbreak`
 
-| Agente | Comando | Função |
-|--------|---------|--------|
-| **doctor** | `/doctor` | Auto-diagnóstico do ambiente. Agenda, cache, lock. |
-| **sentinel** | automático | Orquestrador de 9 camadas com ferramentas reais |
-| **debug-forensic** | `/forensic` | Investigação forense de erros em produção |
-| **ai-code-verifier** | `/verify` | Verifica código gerado por IA antes do merge |
-| **vulnerability-hunter** | automático | Caça cirúrgica de vulnerabilidades. Zero alarmismo. |
-| **web-navigator** | `/navigate` | Navegação web autônoma com DOM + visão |
-| **incident-simulator** | `/simulate` | War games para treinar times |
-| **performance-profiler** | `/perf` | Profiling de CPU, memória, banco e rede |
-| **dependency-auditor** | `/audit` | Auditoria de supply chain e CVEs |
-| **api-integration-specialist** | automático | Integração idiomática com APIs externas |
-| **schema-evolution-planner** | automático | Migração de banco sem downtime |
-| **diagram-as-code** | `/diagram` | Gera Mermaid, PlantUML e C4 |
-| **contract-test-broker** | `/contract-test` | Testes de contrato entre serviços |
-| **prompt-optimizer** | automático | Otimização de prompts com evals A/B |
-| **rag-pipeline-builder** | automático | Construção de pipelines RAG |
-| **legacy-modernizer** | `/migrate` | Migração de código legado |
-| **monorepo-architect** | automático | Gerência de monorepos |
-| **i18n-l10n-engineer** | `/i18n` | Internacionalização e localização |
-| **a11y-auditor** | automático | Auditoria WCAG 2.2 |
-| **feature-flag-surgeon** | automático | Feature flags com rollout gradual |
-
----
-
-## 🛠️ Skills Refinadas
-
-| Skill | Conteúdo |
-|-------|----------|
-| **resilience-engineering** | 6 pilares: circuit breaker, retry, timeout, bulkhead, graceful degradation, chaos engineering |
-| **observability-stack** | Logging estruturado, métricas golden signals, tracing OpenTelemetry |
-| **authz-authn-matrix** | OAuth2, OIDC, Passkeys, JWT, RBAC, ABAC, ReBAC |
-| **agentic-search** | Navegação híbrida: DOM + visão + API direta |
-
----
-
-## ⚡ Comandos
-
-| Comando | Agente |
-|---------|--------|
-| `/doctor` | Auto-diagnóstico |
-| `/forensic` | Debug forense |
-| `/verify` | Verificador IA |
-| `/simulate` | Simulador de incidentes |
-| `/navigate` | Navegador web |
-| `/perf` | Performance |
-| `/audit` | Auditoria |
-| `/diagram` | Diagramas |
-| `/contract-test` | Testes de contrato |
-| `/i18n` | Internacionalização |
-| `/migrate` | Migração |
-| `/incident` | Postmortem |
-| `/unbreak` | Breaking changes |
-
----
-
-## 🛡️ Arquitetura
-
-```
-DOCTOR → SENTINEL → Debug Forensic | AI Code Verifier | Vulnerability Hunter | Web Navigator | Incident Simulator
-```
-
-## 🚀 Primeiros passos
-
-1. Instale o plugin
-2. Execute `/doctor`
-3. Use `/verify` antes de merge com código IA
-4. Use `/simulate` para treinar o time
-5. Use `/forensic` quando algo quebrar
-
-## 📄 Licença
+## Licen�a
 MIT
-```

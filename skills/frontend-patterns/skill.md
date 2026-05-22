@@ -1,41 +1,49 @@
-ï»¿---
+---
 name: frontend-patterns
 description: |
-  PadrÃµes de frontend: React, Next.js, estado, performance, acessibilidade.
-  Trigger phrases: "frontend", "React", "Next.js", "component", "state management"
+  Padrões frontend para arquitetura de componentes, estado, acessibilidade e performance.
+  Trigger phrases: "frontend architecture", "component design", "UI patterns", "React patterns"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Frontend Patterns â€” React e Next.js
+# Frontend Patterns — UI Sustentável e Escalável
 
-## Estrutura de Componentes
-- Atomic Design: atoms, molecules, organisms, templates, pages
-- Container/Presentational: lÃ³gica separada da apresentaÃ§Ã£o
-- Custom Hooks: extraia lÃ³gica reutilizÃ¡vel
+## Objetivo
+Construir interfaces consistentes, acessíveis e fáceis de evoluir.
 
-## Gerenciamento de Estado
-- Estado local: useState para UI
-- Estado compartilhado: Context ou Zustand
-- Estado de servidor: React Query ou SWR
-- URL: estado que deve sobreviver a refresh
+## Arquitetura recomendada
+- Componentes por responsabilidade (presentational vs container)
+- Estado local por padrão; global só quando necessário
+- Design tokens para consistência visual
+- Feature folders para coesão de domínio
+
+## Regras de qualidade
+- Acessibilidade mínima (teclado, foco, contraste, labels)
+- Feedback claro para loading/erro/vazio
+- Evitar re-render desnecessário
+- Tratamento de falhas de rede no nível de UX
 
 ## Performance
-- React.memo para componentes puros
-- useMemo e useCallback com moderaÃ§Ã£o
-- Code splitting com dynamic import
-- Imagens com next/image e lazy loading
+- Code splitting por rota/feature
+- Memoização com critério (não por reflexo)
+- Imagens otimizadas e lazy loading
+- Medir Web Vitals antes/depois
 
-## Regras de Ouro
-- Fetch de dados no servidor (RSC) sempre que possÃ­vel
-- Loading e error states sempre tratados
-- FormulÃ¡rios com validaÃ§Ã£o client e server
-- Acessibilidade: labels, roles, teclado
-- Mobile-first com media queries
+## Testes
+- Unit para lógica de componente
+- Integration para fluxos UI + estado
+- E2E para jornadas críticas
+- Snapshot apenas quando útil e estável
 
-## Anti-Patterns
-- useState para dados de servidor
-- useEffect desnecessÃ¡rio
-- Prop drilling profundo (> 3 nÃ­veis)
-- Sem tratamento de loading/error
-- Div aninhada sem semÃ¢ntica
+## Anti-patterns
+- "God components" com lógica demais
+- Estado duplicado em múltiplas fontes
+- CSS acoplado ao acaso sem estratégia
+- Ignorar estados intermediários da UX
+
+## Saída esperada do agente
+- Mapa de componentes e fronteiras
+- Estratégia de estado por camada
+- Checklist de a11y/performance
+- Plano de testes por tipo

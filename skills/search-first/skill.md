@@ -1,35 +1,53 @@
-ï»¿---
+---
 name: search-first
 description: |
-  Pesquisar antes de codar: documentaÃ§Ã£o, GitHub, StackOverflow.
+  Pesquisa orientada a evidências antes de implementar: docs primárias, código real, benchmarks e riscos.
   Trigger phrases: "search first", "research before code", "look up", "find solution"
 allowed-tools: Read, Grep, Bash, WebSearch, WebFetch
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Search First â€” Pesquisar Antes de Codar
+# Search First — Pesquisar Antes de Codar
 
-## O PrincÃ­pio
-Antes de escrever qualquer cÃ³digo, pesquise:
-1. Isso jÃ¡ existe pronto? (biblioteca, SaaS, open source)
-2. AlguÃ©m jÃ¡ resolveu esse problema? (StackOverflow, GitHub, docs)
-3. Qual a forma idiomÃ¡tica na linguagem/framework?
+## Objetivo
+Reduzir retrabalho e risco técnico validando soluções existentes antes de escrever código novo.
 
-## Ferramentas de Pesquisa
-- DocumentaÃ§Ã£o oficial: sempre a fonte primÃ¡ria
-- GitHub: issues, discussions, cÃ³digo fonte
-- StackOverflow: respostas com mais de 50 votos
-- Blogs de engenharia: Netflix, Uber, Stripe, Shopify
+## Protocolo de pesquisa
+1. Defina a pergunta técnica em uma frase.
+2. Priorize fonte primária (docs oficiais/spec/repo oficial).
+3. Colete 2-3 abordagens viáveis com trade-offs.
+4. Verifique sinais de manutenção (stars recentes, releases, issues abertas).
+5. Registre decisão e descarte de alternativas.
 
-## Regras de Ouro
-- Primeira hora Ã© de pesquisa, nÃ£o de cÃ³digo
-- SoluÃ§Ã£o existente Ã© melhor que cÃ³digo novo
-- CÃ³digo nÃ£o escrito Ã© o melhor cÃ³digo (sem bugs)
-- Documente o que pesquisou para o prÃ³ximo dev
-- Se nÃ£o encontrou nada, documente a decisÃ£o (ADR)
+## Ordem de fontes
+1. Documentação oficial
+2. Código fonte oficial/exemplos mantidos
+3. RFCs, specs e notas de release
+4. Issues/discussions do repositório
+5. Conteúdo comunitário (StackOverflow, blogs)
 
-## Anti-Patterns
-- ComeÃ§ar a codar sem pesquisar
-- Reinventar biblioteca que jÃ¡ existe
-- Usar primeira soluÃ§Ã£o do StackOverflow sem entender
-- Ignorar documentaÃ§Ã£o oficial
+## Critérios de escolha
+- Compatibilidade com stack atual
+- Custo operacional e lock-in
+- Segurança e compliance
+- Maturidade de ecossistema
+- Facilidade de observabilidade e teste
+
+## Checklist de validação
+- A solução resolve o problema real (não só sintoma)?
+- Existe benchmark/case confiável?
+- Há plano de rollback?
+- Equipe consegue manter sem especialista único?
+- Dependência aceita nossa política de licenças?
+
+## Anti-patterns
+- Codar antes de formular hipótese
+- Copiar snippet sem compreender limites
+- Escolher por hype sem avaliar custo total
+- Ignorar changelog e breaking changes
+
+## Saída esperada do agente
+- Resumo com 2-3 opções e trade-offs
+- Recomendação final com justificativa
+- Riscos conhecidos + mitigação
+- Próximos passos de implementação

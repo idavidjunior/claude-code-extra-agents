@@ -1,71 +1,54 @@
-Ôªø# Agentic Search ‚Äî Navega√ß√£o Web Aut√¥noma com Ferramentas Reais
+---
+name: agentic-search
+description: |
+  NavegaÁ„o web autÙnoma para pesquisa e extraÁ„o com estratÈgia API-first, DOM-first e fallback visual.
+  Trigger phrases: "agentic search", "web navigation", "scraping", "playwright mcp", "stagehand"
+allowed-tools: Read, Grep, Bash, WebSearch, WebFetch
+version: 1.1.0
+---
 
-## Quando Aplicar
-- O Sentinel precisa buscar informa√ß√µes atualizadas na internet
-- Extrair dados estruturados de sites que n√£o t√™m API
-- Automatizar tarefas repetitivas de navega√ß√£o
-- Pesquisar documenta√ß√£o t√©cnica em m√∫ltiplas fontes simultaneamente
+# Agentic Search ó NavegaÁ„o Web AutÙnoma com Ferramentas Reais
 
-## Arquitetura H√≠brida (o que funciona de verdade)
+## Objetivo
+Buscar e extrair informaÁ„o atualizada com seguranÁa, baixo custo e alta confiabilidade.
 
-### Modo 1: DOM Determin√≠stico (PRIM√ÅRIO)
-**Ferramenta principal: Playwright MCP**
-- Transforma o DOM ao vivo em texto estruturado acess√≠vel ao modelo
-- Navega√ß√£o por seletores CSS/XPath ‚Äî determin√≠stica, r√°pida, sem alucina√ß√£o
-- Cobertura ideal: sites com estrutura HTML previs√≠vel
+## EstratÈgia de execuÁ„o
+1. API-first: use API oficial sempre que existir.
+2. DOM-first: automaÁ„o determinÌstica via seletores.
+3. Vision fallback: sÛ quando o DOM n„o for vi·vel.
 
-**Ferramenta secund√°ria: Stagehand (Browserbase)**
-- Automa√ß√£o com linguagem natural
-- Compat√≠vel com Playwright e Puppeteer
-- Melhor para prototipagem r√°pida
+## Quando aplicar
+- Pesquisa tÈcnica em m˙ltiplas fontes
+- ExtraÁ„o estruturada de p·ginas sem API p˙blica
+- Rotinas repetitivas de consulta/navegaÁ„o
 
-### Modo 2: Vis√£o Computacional (FALLBACK)
-**Ferramenta: Computer Use (Claude) ou Operator API**
-- Funciona em interfaces n√£o padronizadas
-- Limita√ß√£o: mais lento, mais caro, 35.8% sucesso em tarefas reais
-- Use APENAS quando DOM falhar
+## Ferramentas por modo
+- API direta: mais barato e est·vel
+- Playwright MCP: principal para DOM previsÌvel
+- Stagehand: alternativa de automaÁ„o guiada
+- Computer Use/Operator: ˙ltimo recurso para UI n„o padronizada
 
-### Modo 3: API Direta (PREFERENCIAL)
-- Sempre verifique se o site tem API antes de navegar
-- APIs s√£o 10-100x mais baratas e 100% determin√≠sticas
+## Checklist de seguranÁa
+- DomÌnio validado e HTTPS
+- Escopo de URLs permitido
+- Sem credenciais/tokens em formul·rios
+- Sem downloads execut·veis
+- Timeouts definidos por p·gina/tarefa
 
-## Ferramentas por Caso de Uso
-| Tarefa | Prim√°ria | Fallback |
-|--------|----------|----------|
-| Documenta√ß√£o t√©cnica | Playwright MCP | Stagehand |
-| Extrair tabelas | Playwright MCP + seletores | Stagehand |
-| Formul√°rios | Playwright MCP | Stagehand |
-| Dashboard | Stagehand | Computer Use |
-| Captcha | N√ÉO AUTOMATIZAR | Humano |
+## Checklist de qualidade
+- Fonte prim·ria registrada?
+- Dados extraÌdos com seletor est·vel?
+- EvidÍncia de verificaÁ„o cruzada?
+- Resultado final rastre·vel para URL/trecho?
 
-## Processo de Navega√ß√£o Segura
+## Anti-patterns
+- Ignorar API disponÌvel
+- Usar vis„o para casos que DOM resolve
+- Navegar fora do escopo acordado
+- Extrair sem validar origem
 
-### Antes de navegar
-- Verificar se o site tem API
-- Confirmar dom√≠nio leg√≠timo (HTTPS)
-- Definir escopo de URLs permitidas
-- Timeouts: 30s por p√°gina, 5min por tarefa
-
-### Durante a navega√ß√£o
-- NUNCA clicar em links externos sem confirma√ß√£o
-- NUNCA inserir credenciais ou tokens
-- NUNCA baixar execut√°veis
-- NUNCA submeter formul√°rios com consequ√™ncias reais
-
-### Extra√ß√£o de dados
-- Prefira JSON-LD, microdata, RDFa
-- Tabelas: page.locator + parse
-- Listas: seletores CSS consistentes
-- Texto livre: page.innerText
-
-## Anti-Patterns
-- Navegar sem escopo definido
-- Usar vis√£o quando DOM funciona
-- Simular clique quando API existe
-- Extrair dados sem verificar fonte
-- Ignorar robots.txt
-
-## Refer√™ncias
-- Playwright MCP: github.com/microsoft/playwright-mcp
-- Stagehand: stagehand.dev
-- Computer Use: docs.anthropic.com
+## SaÌda esperada do agente
+- Plano de busca por fonte
+- EstratÈgia API/DOM/fallback escolhida
+- Dados extraÌdos com referÍncias
+- Riscos e limitaÁıes encontrados

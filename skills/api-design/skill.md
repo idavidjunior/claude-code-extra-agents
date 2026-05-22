@@ -1,46 +1,49 @@
-ï»¿---
+---
 name: api-design
 description: |
-  REST API design, paginaÃ§Ã£o, respostas de erro, versionamento.
-  Trigger phrases: "API design", "REST", "endpoint", "paginaÃ§Ã£o", "error response"
+  Design de APIs HTTP/REST com contratos consistentes, versionamento, erros previsíveis e foco em evolutividade.
+  Trigger phrases: "API design", "REST", "endpoint contract", "versioning"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# API Design â€” REST, PaginaÃ§Ã£o, Erros
+# API Design — Contratos Claros e Evolutivos
 
-## Estrutura de URL
-- ColeÃ§Ãµes: /orders
-- Item: /orders/{id}
-- Sub-recursos: /orders/{id}/items
-- Verbos HTTP: GET (ler), POST (criar), PUT (substituir), PATCH (atualizar parcial), DELETE (remover)
+## Objetivo
+Criar APIs fáceis de consumir, difíceis de quebrar e simples de operar.
 
-## PaginaÃ§Ã£o
-- Use cursor-based (recomendado) ou offset-based
-- Resposta sempre inclui: next, prev, total
-- Limite mÃ¡ximo de itens por pÃ¡gina (max 100)
+## Princípios de contrato
+- Recursos nomeados por domínio (`/orders`, `/invoices`)
+- Semântica HTTP coerente (GET/POST/PATCH/DELETE)
+- Esquemas de request/response versionados
+- Erros padronizados com código, mensagem e contexto
 
-## Respostas de Erro
-- Use cÃ³digos HTTP corretos: 400 (validaÃ§Ã£o), 401 (nÃ£o autenticado), 403 (sem permissÃ£o), 404 (nÃ£o encontrado), 409 (conflito), 422 (entidade nÃ£o processÃ¡vel), 429 (rate limit), 500 (erro interno)
-- Corpo do erro padronizado: { "error": { "code": "...", "message": "...", "details": [...] } }
-- Nunca exponha stack trace na resposta
+## Boas práticas
+- Paginação consistente (cursor preferível para alta escala)
+- Idempotency keys em operações críticas
+- Campos opcionais com defaults explícitos
+- Filtros e ordenação documentados
 
-## Versionamento
-- Prefira header: Accept: application/vnd.api.v2+json
-- Alternativa: URL /v2/orders
-- Mantenha versÃµes antigas por pelo menos 6 meses
+## Versionamento e compatibilidade
+- Evitar breaking changes silenciosas
+- Deprecar com prazo e comunicação
+- Backward compatibility como padrão
+- Contract tests entre producer/consumer
 
-## Regras de Ouro
-- IdempotÃªncia: POST com Idempotency-Key para operaÃ§Ãµes crÃ­ticas
-- Rate limiting: 429 com header Retry-After
-- CompressÃ£o: gzip para payloads > 1KB
-- Caching: ETag e Last-Modified
-- CORS: apenas origens explÃ­citas, nunca wildcard com credenciais
-- AutenticaÃ§Ã£o via Authorization header, nunca cookie para APIs
+## Segurança e operação
+- Autenticação/autorização por escopo
+- Rate limit por cliente/rota
+- Observabilidade por endpoint (latência, erro, saturação)
+- Trace ID propagado ponta a ponta
 
-## Anti-Patterns
-- GET que modifica dados
-- Rota /getOrders (verbo na URL)
-- Erro 200 com mensagem de erro no corpo
-- IDs sequenciais expostos (use UUID)
-- PaginaÃ§Ã£o sem total
+## Anti-patterns
+- Endpoint "faz tudo" sem coesão
+- Erros ambíguos sem ação para cliente
+- Mudança de contrato sem versionar
+- Falta de limites em payload/query
+
+## Saída esperada do agente
+- Especificação de endpoint (input/output/errors)
+- Regras de versionamento e depreciação
+- Checklist de segurança e observabilidade
+- Plano de testes de contrato

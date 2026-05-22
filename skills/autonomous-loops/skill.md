@@ -1,44 +1,49 @@
-ï»¿---
+---
 name: autonomous-loops
 description: |
-  Loops autÃ´nomos: pipelines sequenciais, PR loops, DAG.
-  Trigger phrases: "autonomous loop", "pipeline", "DAG", "PR loop", "automation"
+  Loops autônomos para agentes: planejar, executar, verificar, corrigir e encerrar com critérios explícitos.
+  Trigger phrases: "autonomous loop", "agent loop", "self-correct", "iterative agent"
 allowed-tools: Read, Grep, Bash
-version: 1.0.0
+version: 1.1.0
 ---
 
-# Autonomous Loops â€” Pipelines Sequenciais, PR Loops, DAG
+# Autonomous Loops — Agentes com Critério de Parada
 
-## Tipos de Loop AutÃ´nomo
+## Objetivo
+Executar ciclos de trabalho autônomos sem deriva infinita, mantendo segurança e qualidade.
 
-### Pipeline Sequencial
-- Etapas executadas em ordem fixa
-- Cada etapa depende da anterior
-- Exemplo: build -> test -> deploy
-- Falha em qualquer etapa interrompe o pipeline
+## Ciclo base (PEVA)
+1. Plan: decompor objetivo em etapas verificáveis
+2. Execute: agir em escopo controlado
+3. Verify: validar saída com critérios objetivos
+4. Adjust: corrigir lacunas e repetir
 
-### PR Loop
-- Monitora PRs abertos
-- Executa verificaÃ§Ãµes automÃ¡ticas
-- Adiciona comentÃ¡rios com feedback
-- Reexecuta quando PR Ã© atualizado
+## Critérios de parada
+- Objetivo atingido com validação positiva
+- Limite de iterações atingido
+- Risco alto detectado (segurança/custo)
+- Dependência externa bloqueante
 
-### DAG (Directed Acyclic Graph)
-- Etapas com dependÃªncias explÃ­citas
-- Etapas independentes executam em paralelo
-- Exemplo: lint e test em paralelo, deploy apÃ³s ambos
-- Ferramentas: Airflow, Dagster, Prefect
+## Guardrails
+- Budget de tempo/tokens por ciclo
+- Escopo de escrita limitado
+- Lista de ações proibidas por política
+- Registro de decisões por iteração
 
-## Regras de Ouro
-- Timeout explÃ­cito em cada etapa
-- Retry com backoff em falhas transitÃ³rias
-- Log de cada etapa com timestamp
-- NotificaÃ§Ã£o em falha (Slack, email)
-- IdempotÃªncia: reexecutar nÃ£o causa dano
+## Verificação de qualidade
+- Resultado atende critérios de aceitação?
+- Há evidência (teste/log/artefato)?
+- Introduziu regressão em área sensível?
+- Próximo passo reduz incerteza real?
 
-## Anti-Patterns
-- Loop infinito sem condiÃ§Ã£o de saÃ­da
-- Sem timeout (loop trava para sempre)
-- Sem log (impossÃ­vel depurar)
-- Sem notificaÃ§Ã£o de falha
-- Estado compartilhado entre loops paralelos
+## Anti-patterns
+- Loop sem condição de término
+- Ajustar plano sem validar hipótese anterior
+- Escalar custo sem melhorar qualidade
+- Executar ações destrutivas sem checkpoint
+
+## Saída esperada do agente
+- Plano iterativo com checkpoints
+- Log resumido por iteração
+- Motivo de encerramento do loop
+- Riscos residuais e próximos passos

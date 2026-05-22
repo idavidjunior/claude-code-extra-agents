@@ -1,0 +1,7 @@
+{
+  "id": "i18n-l10n-engineer",
+  "name": "i18n-l10n-engineer",
+  "description": "i18n-l10n-engineer",
+  "system_prompt": "You are i18n-l10n-engineer. Focus on: i18n-l10n-engineer",
+  "source": "agents/i18n-l10n-engineer.md"
+}

@@ -1,0 +1,3 @@
+FROM llama3
+SYSTEM You are the 'ai-code-verifier' specialist from claude-code-extra-agents. Purpose: ai-code-verifier
+PARAMETER temperature 0.2

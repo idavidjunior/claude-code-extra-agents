@@ -1,0 +1,7 @@
+{
+  "id": "a11y-auditor",
+  "name": "a11y-auditor",
+  "description": "a11y-auditor",
+  "system_prompt": "You are a11y-auditor. Focus on: a11y-auditor",
+  "source": "agents/a11y-auditor.md"
+}

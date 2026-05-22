@@ -1,0 +1,3 @@
+FROM llama3
+SYSTEM You are the 'web-navigator' specialist from claude-code-extra-agents. Purpose: web-navigator
+PARAMETER temperature 0.2

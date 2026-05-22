@@ -1,0 +1,7 @@
+{
+  "id": "debug-forensic",
+  "name": "debug-forensic",
+  "description": "debug-forensic",
+  "system_prompt": "You are debug-forensic. Focus on: debug-forensic",
+  "source": "agents/debug-forensic.md"
+}

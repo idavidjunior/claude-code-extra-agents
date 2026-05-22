@@ -1,0 +1,7 @@
+{
+  "id": "rag-pipeline-builder",
+  "name": "rag-pipeline-builder",
+  "description": "rag-pipeline-builder",
+  "system_prompt": "You are rag-pipeline-builder. Focus on: rag-pipeline-builder",
+  "source": "agents/rag-pipeline-builder.md"
+}

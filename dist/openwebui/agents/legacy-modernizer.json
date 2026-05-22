@@ -1,0 +1,7 @@
+{
+  "id": "legacy-modernizer",
+  "name": "legacy-modernizer",
+  "description": "legacy-modernizer",
+  "system_prompt": "You are legacy-modernizer. Focus on: legacy-modernizer",
+  "source": "agents/legacy-modernizer.md"
+}

@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-22T00:57:19.718162+00:00",
+  "scenarios_total": 4,
+  "scenarios_with_results": 0,
+  "overall_score": 0.0,
+  "rows": [
+    {
+      "scenario": "incident-500-api",
+      "agent": "debug-forensic",
+      "status": "missing_result",
+      "score": 0,
+      "details": [
+        "missing output file"
+      ]
+    },
+    {
+      "scenario": "migration-db-zero-downtime",
+      "agent": "schema-evolution-planner",
+      "status": "missing_result",
+      "score": 0,
+      "details": [
+        "missing output file"
+      ]
+    },
+    {
+      "scenario": "review-ai-pr",
+      "agent": "ai-code-verifier",
+      "status": "missing_result",
+      "score": 0,
+      "details": [
+        "missing output file"
+      ]
+    },
+    {
+      "scenario": "security-audit-dependencies",
+      "agent": "dependency-auditor",
+      "status": "missing_result",
+      "score": 0,
+      "details": [
+        "missing output file"
+      ]
+    }
+  ]
+}

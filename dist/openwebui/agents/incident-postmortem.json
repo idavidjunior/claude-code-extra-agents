@@ -1,0 +1,7 @@
+{
+  "id": "incident-postmortem",
+  "name": "incident-postmortem",
+  "description": "incident-postmortem",
+  "system_prompt": "You are incident-postmortem. Focus on: incident-postmortem",
+  "source": "agents/incident-postmortem.md"
+}

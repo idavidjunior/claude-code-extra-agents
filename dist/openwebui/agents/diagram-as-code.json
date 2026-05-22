@@ -1,0 +1,7 @@
+{
+  "id": "diagram-as-code",
+  "name": "diagram-as-code",
+  "description": "diagram-as-code",
+  "system_prompt": "You are diagram-as-code. Focus on: diagram-as-code",
+  "source": "agents/diagram-as-code.md"
+}

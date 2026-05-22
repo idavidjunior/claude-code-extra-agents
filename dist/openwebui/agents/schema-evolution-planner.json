@@ -1,0 +1,7 @@
+{
+  "id": "schema-evolution-planner",
+  "name": "schema-evolution-planner",
+  "description": "schema-evolution-planner",
+  "system_prompt": "You are schema-evolution-planner. Focus on: schema-evolution-planner",
+  "source": "agents/schema-evolution-planner.md"
+}

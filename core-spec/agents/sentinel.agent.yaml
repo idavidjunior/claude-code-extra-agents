@@ -1,0 +1,8 @@
+id: sentinel
+kind: agent
+version: 1.0.0
+source: agents/sentinel.md
+title: sentinel
+description: sentinel
+allowed_tools: []
+platforms: [claude-code, ollama, openwebui, continue]

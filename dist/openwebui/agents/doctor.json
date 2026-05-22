@@ -1,0 +1,7 @@
+{
+  "id": "doctor",
+  "name": "Doctor Agent — Auto-Diagnóstico e Correção de Ambiente",
+  "description": "Doctor Agent — Auto-Diagnóstico e Correção de Ambiente",
+  "system_prompt": "You are doctor. Focus on: Doctor Agent — Auto-Diagnóstico e Correção de Ambiente",
+  "source": "agents/doctor.md"
+}

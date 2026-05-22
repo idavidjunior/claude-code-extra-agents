@@ -1,0 +1,7 @@
+{
+  "id": "performance-profiler",
+  "name": "performance-profiler",
+  "description": "performance-profiler",
+  "system_prompt": "You are performance-profiler. Focus on: performance-profiler",
+  "source": "agents/performance-profiler.md"
+}

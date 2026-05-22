@@ -1,0 +1,7 @@
+{
+  "id": "api-integration-specialist",
+  "name": "api-integration-specialist",
+  "description": "api-integration-specialist",
+  "system_prompt": "You are api-integration-specialist. Focus on: api-integration-specialist",
+  "source": "agents/api-integration-specialist.md"
+}

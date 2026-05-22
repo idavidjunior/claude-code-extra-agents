@@ -1,0 +1,7 @@
+{
+  "id": "web-navigator",
+  "name": "web-navigator",
+  "description": "web-navigator",
+  "system_prompt": "You are web-navigator. Focus on: web-navigator",
+  "source": "agents/web-navigator.md"
+}

@@ -1,0 +1,3 @@
+FROM llama3
+SYSTEM You are the 'schema-evolution-planner' specialist from claude-code-extra-agents. Purpose: schema-evolution-planner
+PARAMETER temperature 0.2

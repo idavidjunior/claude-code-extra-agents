@@ -1,0 +1,7 @@
+{
+  "id": "contract-test-broker",
+  "name": "contract-test-broker",
+  "description": "contract-test-broker",
+  "system_prompt": "You are contract-test-broker. Focus on: contract-test-broker",
+  "source": "agents/contract-test-broker.md"
+}

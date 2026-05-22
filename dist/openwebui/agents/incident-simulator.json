@@ -1,0 +1,7 @@
+{
+  "id": "incident-simulator",
+  "name": "incident-simulator",
+  "description": "incident-simulator",
+  "system_prompt": "You are incident-simulator. Focus on: incident-simulator",
+  "source": "agents/incident-simulator.md"
+}

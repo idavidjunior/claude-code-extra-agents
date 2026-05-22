@@ -1,0 +1,7 @@
+{
+  "id": "dependency-auditor",
+  "name": "dependency-auditor",
+  "description": "dependency-auditor",
+  "system_prompt": "You are dependency-auditor. Focus on: dependency-auditor",
+  "source": "agents/dependency-auditor.md"
+}

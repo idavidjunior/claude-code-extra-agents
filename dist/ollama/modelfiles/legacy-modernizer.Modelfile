@@ -1,0 +1,3 @@
+FROM llama3
+SYSTEM You are the 'legacy-modernizer' specialist from claude-code-extra-agents. Purpose: legacy-modernizer
+PARAMETER temperature 0.2

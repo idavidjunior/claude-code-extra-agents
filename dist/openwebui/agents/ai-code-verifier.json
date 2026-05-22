@@ -1,0 +1,7 @@
+{
+  "id": "ai-code-verifier",
+  "name": "ai-code-verifier",
+  "description": "ai-code-verifier",
+  "system_prompt": "You are ai-code-verifier. Focus on: ai-code-verifier",
+  "source": "agents/ai-code-verifier.md"
+}

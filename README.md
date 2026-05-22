@@ -1,6 +1,6 @@
 # Claude Code Extra Agents
 
-Ecossistema de agentes e skills para desenvolvimento, qualidade, segurança e operação no Claude Code.
+Ecossistema de agentes e skills para desenvolvimento, qualidade, seguranca e operacao no Claude Code.
 
 ## Instalacao em 1 minuto
 
@@ -18,6 +18,26 @@ Ecossistema de agentes e skills para desenvolvimento, qualidade, segurança e ope
 ### Opcao 3: Script local (Linux/macOS)
 ```bash
 bash install.sh
+```
+
+## Multi-plataforma (core unico)
+- Guia: [Multi-platform](docs/MULTIPLATFORM.md)
+- Core spec: `core-spec/agents/*.agent.yaml` e `core-spec/skills/*.skill.yaml`
+- Targets: Claude Code, Ollama, Open WebUI, Continue/Cline
+
+Gerar e validar:
+```powershell
+python ./scripts/build_core_and_targets.py
+python ./scripts/validate_core_spec.py
+```
+
+## Agent Reliability Lab
+- Guia: [Reliability Lab](reliability-lab/README.md)
+- Cenarios fixos, rubrica e leaderboard por versao
+
+Executar avaliacao:
+```bash
+python ./scripts/evaluate_reliability_lab.py
 ```
 
 ## Quick Start

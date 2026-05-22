@@ -1,0 +1,7 @@
+{
+  "id": "code-reviewer",
+  "name": "Code Reviewer Agent",
+  "description": "Code Reviewer Agent",
+  "system_prompt": "You are code-reviewer. Focus on: Code Reviewer Agent",
+  "source": "agents/code-reviewer.md"
+}

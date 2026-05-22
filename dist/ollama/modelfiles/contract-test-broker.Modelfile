@@ -1,0 +1,3 @@
+FROM llama3
+SYSTEM You are the 'contract-test-broker' specialist from claude-code-extra-agents. Purpose: contract-test-broker
+PARAMETER temperature 0.2

@@ -1,0 +1,8 @@
+id: web-navigator
+kind: agent
+version: 1.0.0
+source: agents/web-navigator.md
+title: web-navigator
+description: web-navigator
+allowed_tools: []
+platforms: [claude-code, ollama, openwebui, continue]

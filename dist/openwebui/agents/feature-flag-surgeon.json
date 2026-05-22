@@ -1,0 +1,7 @@
+{
+  "id": "feature-flag-surgeon",
+  "name": "feature-flag-surgeon",
+  "description": "feature-flag-surgeon",
+  "system_prompt": "You are feature-flag-surgeon. Focus on: feature-flag-surgeon",
+  "source": "agents/feature-flag-surgeon.md"
+}

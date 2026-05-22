@@ -1,0 +1,7 @@
+{
+  "id": "prompt-optimizer",
+  "name": "prompt-optimizer",
+  "description": "prompt-optimizer",
+  "system_prompt": "You are prompt-optimizer. Focus on: prompt-optimizer",
+  "source": "agents/prompt-optimizer.md"
+}

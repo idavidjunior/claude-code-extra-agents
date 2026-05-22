@@ -1,0 +1,7 @@
+{
+  "id": "monorepo-architect",
+  "name": "monorepo-architect",
+  "description": "monorepo-architect",
+  "system_prompt": "You are monorepo-architect. Focus on: monorepo-architect",
+  "source": "agents/monorepo-architect.md"
+}

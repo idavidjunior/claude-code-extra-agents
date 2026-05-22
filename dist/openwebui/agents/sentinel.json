@@ -1,0 +1,7 @@
+{
+  "id": "sentinel",
+  "name": "sentinel",
+  "description": "sentinel",
+  "system_prompt": "You are sentinel. Focus on: sentinel",
+  "source": "agents/sentinel.md"
+}
